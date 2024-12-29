@@ -47,8 +47,9 @@ public class Docente {
 		public String getnombre() {
 			return this.nombre;
 		}	
-				
-	// Creando el método setnombre, para establecer un nuevo nombre.
+	
+		// se comenta esto porque nos indican que una vez creado el docente no se puede modificar este dato.
+	// 	//Creando el método setnombre, para establecer un nuevo nombre. 
 		//public void setnombre(String nuevonombre) {
 			//this.nombre = nuevonombre;
 		//}
@@ -57,7 +58,8 @@ public class Docente {
 			return this.apellido_paterno;
 		}	
 						
-	// Creando el método setapellido_paterno, para establecer un nuevo apellido_paterno.
+	// se comenta esto porque nos indican que una vez creado el docente no se puede modificar este dato.
+		//Creando el método setapellido_paterno, para establecer un nuevo apellido_paterno.
 		//public void setapellido_paterno(String nuevoapellido_paterno) {
 			//this.apellido_paterno = nuevoapellido_paterno;
 		//}
@@ -66,7 +68,8 @@ public class Docente {
 		public String getapellido_materno() {
 			return this.apellido_materno;
 		}	
-								
+	
+	// se comenta esto porque nos indican que una vez creado el docente no se puede modificar este dato.
 	// Creando el método setapellido_materno, para establecer un nuevo apellido_materno.
 		//public void setapellido_materno(String nuevoapellido_materno) {
 			//this.apellido_materno = nuevoapellido_materno;
@@ -75,7 +78,7 @@ public class Docente {
 		public String getdni() {
 			return this.dni;
 		}	
-										
+	// se comenta esto porque nos indican que una vez creado el docente no se puede modificar este dato.									
 	// Creando el método setdni, para establecer un nuevo dni.
 		//public void setdni(String nuevodni) {
 			//this.dni = nuevodni;
