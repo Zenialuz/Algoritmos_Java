@@ -1,6 +1,6 @@
 package GestionVehiculos;
 
-public class CocheSeat extends Coche{
+public class CocheSeat extends Coche implements IMatriculaCoche{
 	
 	private Double longitud;
 	private String matricula;

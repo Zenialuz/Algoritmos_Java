@@ -1,6 +1,6 @@
 package GestionVehiculos;
 
-public class CocheMercedes extends Coche{
+public class CocheMercedes extends Coche implements IMatriculaCoche{
 	
 	private Double descuento;
 	private String matricula;
