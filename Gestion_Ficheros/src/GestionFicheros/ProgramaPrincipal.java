@@ -1,6 +1,9 @@
 package GestionFicheros;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ProgramaPrincipal {
@@ -13,6 +16,8 @@ public class ProgramaPrincipal {
 		String rutaFichero1;
 		String rutaFichero2;
 		String rutaFichero3;
+		String rutanuevoFichero;
+		String textoIngresado;
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Ingrese la ruta del fichero1");
@@ -20,15 +25,31 @@ public class ProgramaPrincipal {
 		fichero1 = new File(rutaFichero1);
 		MostrarDetallesFichero(fichero1);
 		
-		System.out.println("Ingrese la ruta del fichero 2");
-		rutaFichero2 = sc.nextLine();
-		fichero2 = new File(rutaFichero2);
-		MostrarDetallesFichero(fichero2);
 		
-		System.out.println("Ingrese la ruta del fichero 3");
-		rutaFichero3 = sc.nextLine();
-		fichero3 = new File(rutaFichero3);
-		MostrarDetallesFichero(fichero3);
+		
+		System.out.println("Ingrese el nombre de un nuevo archivo, incluyendo la ruta para crearlo");
+		rutanuevoFichero = sc.nextLine();
+		File nuevoFichero = new File(rutanuevoFichero);
+		
+		if (nuevoFichero.exists()) {
+			System.out.println("El fichero ya existe");
+		}
+		else {
+			try {
+				nuevoFichero.createNewFile();
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+		}
+		
+		
+		do {
+			System.out.println("ingrese un texto al archivo");
+			textoIngresado = sc.nextLine();
+			EscribirAnchivo(textoIngresado, nuevoFichero);
+			
+		} while(!textoIngresado.equals("EOF"));
 		
 	}
 	
@@ -37,6 +58,31 @@ public class ProgramaPrincipal {
 		System.out.println("El nombre del fichero es: " + archivo.getName());
 		System.out.println("La ruta del fichero es: " + archivo.getPath());
 		System.out.println("El tamaño del fichero es: " + (archivo.length())/1024 + " kbytes");
+		
+	}
+	
+	public static void EscribirAnchivo(String texto, File archivoNuevo) {
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+		
+		try {
+			fw = new FileWriter(archivoNuevo, true);
+			bw = new BufferedWriter(fw);
+			bw.write(texto + "\n");
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
+		 try {
+			 bw.close();
+			 fw.close();
+			
+		} catch (IOException e) {
+			System.out.println("Error al Cerrar el fichero");//Se imprime el mensaje en la consola
+			e.printStackTrace();
+		}
+		
 		
 	}
 
