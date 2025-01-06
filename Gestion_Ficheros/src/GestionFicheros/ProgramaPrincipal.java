@@ -65,6 +65,8 @@ public class ProgramaPrincipal {
 			return;
 		}
 		
+		texto = validarEntero(texto);
+		
 		try {
 			fw = new FileWriter(archivoNuevo, true);
 			bw = new BufferedWriter(fw);
@@ -84,5 +86,43 @@ public class ProgramaPrincipal {
 		}
 		
 	}
-
+	
+	public static boolean esEntero(String numero){
+		
+		/* Aplicamos try catch para el control de errores, así asegurarse que el valor que 
+		 * esta ingresando el usuario se puede convertir o no a número entero.
+		 */
+		
+	    try{
+	        Integer.parseInt(numero);
+	        return true;
+	    }catch(NumberFormatException e){
+	        return false;
+	    }
+	}
+	
+	public static boolean esDouble(String numero){
+		
+	    try{
+	        Double.parseDouble(numero);
+	        return true;
+	    }catch(NumberFormatException e){
+	        return false;
+	    }
+	}
+	public static String validarEntero(String texto) {
+		
+		String valorRetornado;
+		
+		if(esDouble(texto)) {
+			Double valorNumero =Double.parseDouble(texto);
+			valorRetornado = valorNumero.intValue() + "";
+		}
+		else {
+			valorRetornado =texto;
+		}		
+		
+		return valorRetornado;
+	}
+	
 }
