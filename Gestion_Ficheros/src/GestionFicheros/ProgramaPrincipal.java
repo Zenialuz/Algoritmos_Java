@@ -10,12 +10,8 @@ public class ProgramaPrincipal {
 	
 	public static void main(String[] args) {
 		
-		File fichero1 = null;
-		File fichero2 = null;
-		File fichero3 = null;
-		String rutaFichero1;
-		String rutaFichero2;
-		String rutaFichero3;
+		File fichero1 = null;		
+		String rutaFichero1;	
 		String rutanuevoFichero;
 		String textoIngresado;
 		
@@ -65,6 +61,10 @@ public class ProgramaPrincipal {
 		FileWriter fw = null;
 		BufferedWriter bw = null;
 		
+		if(texto.equals("EOF")){
+			return;
+		}
+		
 		try {
 			fw = new FileWriter(archivoNuevo, true);
 			bw = new BufferedWriter(fw);
@@ -83,8 +83,6 @@ public class ProgramaPrincipal {
 			e.printStackTrace();
 		}
 		
-		
 	}
-
 
 }
